@@ -1,36 +1,51 @@
 package appli.acceuil;
 
+import appli.StartApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.w3c.dom.ls.LSOutput;
+import java.io.IOException;
 
 public class LoginController {
-    @FXML
-    private TextField identifiant;
-
-    @FXML
-    private TextField motdepasse;
-
-    @FXML
-    private DialogPane error;
 
     @FXML
     private Button connexion;
 
     @FXML
+    private Label erreurLabel;
+
+    @FXML
+    private TextField identifiant;
+
+    @FXML
     private Button inscription;
 
     @FXML
-    private Button mdpoublie;
+    private Button mdp_oublie;
 
-    public void afficherInformations() {
-        String id = identifiant.getText();
-        String mdp = motdepasse.getText();
+    @FXML
+    private TextField motdepasse;
 
-        System.out.println("Identifiant : " + id);
-        System.out.println("Mot de passe : " + mdp);
+    @FXML
+    public void afficherInformations(ActionEvent event) {
+        String user = identifiant.getText().trim();
+        String pass = motdepasse.getText().trim();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            erreurLabel.setText("Identifiant et mot de passe sont obligatoires !");
+            return;
+        }
+        if (user.equals("admin") && pass.equals("1234")) {
+            erreurLabel.setText("Connexion réussie !");
+            System.out.println("Identifiant : " +identifiant.getText()+"\nMot de passe : "+motdepasse.getText());
+        } else {
+            erreurLabel.setText("Identifiant ou mot de passe incorrect !");
+        }
     }
-
+    @FXML
+    private void allerAInscription(ActionEvent event) {
+        StartApplication.changeScene("InscriptionView");
+    }
 }

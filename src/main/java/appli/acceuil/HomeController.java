@@ -1,4 +1,4 @@
 package appli.acceuil;
 
-public class Home {
+public class HomeController {
 }
