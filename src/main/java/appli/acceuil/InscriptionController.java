@@ -7,7 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.IOException;
+import model.Utilisateur;
+import repository.UtilisateurRepository;
 
 public class InscriptionController {
 
@@ -42,21 +43,32 @@ public class InscriptionController {
         String emailUtilisateur = email.getText().trim();
         String motDePasse = mdp.getText().trim();
         String confirmationMotDePasse = mdp_confirm.getText().trim();
+
         if (nomUtilisateur.isEmpty() || prenomUtilisateur.isEmpty() || emailUtilisateur.isEmpty() ||
                 motDePasse.isEmpty() || confirmationMotDePasse.isEmpty()) {
             erreurLabel.setText("Tous les champs sont obligatoires !");
+            System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
+
         if (!motDePasse.equals(confirmationMotDePasse)) {
             erreurLabel.setText("Les mots de passe ne correspondent pas !");
+            System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
-        if (!emailUtilisateur.matches("^[\\w.-]+@[\\w.-]+\\.[a-z]{2,6}$")) { //Je vérifie si l'email a un @ et contien les bon caractères
+
+        if (!emailUtilisateur.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             erreurLabel.setText("Adresse email invalide !");
+            System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
+        Utilisateur nouvelUtilisateur = new Utilisateur(nomUtilisateur, prenomUtilisateur, emailUtilisateur, motDePasse, "utilisateur");
+
+        UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
+        utilisateurRepo.ajouterUtilisateur(nouvelUtilisateur);
+
         erreurLabel.setText("Inscription réussie !");
-        System.out.println("Prénom : " +prenom.getText()+"\nNom : "+nom.getText()+"\nEmail : "+email.getText()+"\nMotDePasse : "+mdp.getText());
+        System.out.println("Utilisateur inscrit avec succès : " + nouvelUtilisateur);
     }
 
     @FXML

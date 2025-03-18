@@ -13,7 +13,7 @@
 
 <AnchorPane cacheShape="false" focusTraversable="true" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.LoginController">
    <children>
-      <Text layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIENVENUE !" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNEXION" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

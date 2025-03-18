@@ -17,7 +17,7 @@ public class StartApplication extends Application {
     public void start(Stage stage) throws IOException {
         mainStage = stage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("acceuil/LoginView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ressources/appli/acceuil/LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 300);
         stage.setTitle("Connexion");
         stage.setScene(scene);
@@ -25,8 +25,13 @@ public class StartApplication extends Application {
     }
 
     public static void changeScene(String fichierFxml) {
+        if (mainStage == null) {
+            System.err.println("Erreur : La scène principale (mainStage) n'est pas initialisée.");
+            return;
+        }
+
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("acceuil/" + fichierFxml + ".fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/ressources/appli/acceuil/" + fichierFxml + ".fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             mainStage.setScene(scene);
             mainStage.setTitle(fichierFxml.equals("LoginView") ? "Connexion" : "Inscription");

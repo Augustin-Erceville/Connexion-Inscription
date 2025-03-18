@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.IOException;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
 
 public class LoginController {
 
@@ -26,7 +28,7 @@ public class LoginController {
     private Button mdp_oublie;
 
     @FXML
-    private TextField motdepasse;
+    private PasswordField motdepasse;
 
     @FXML
     public void afficherInformations(ActionEvent event) {
@@ -35,15 +37,22 @@ public class LoginController {
 
         if (user.isEmpty() || pass.isEmpty()) {
             erreurLabel.setText("Identifiant et mot de passe sont obligatoires !");
+            System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
-        if (user.equals("admin") && pass.equals("1234")) {
+
+        UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
+        Utilisateur utilisateur = utilisateurRepo.getUtilisateurParEmail(user);
+
+        if (utilisateur != null) {
             erreurLabel.setText("Connexion réussie !");
-            System.out.println("Identifiant : " +identifiant.getText()+"\nMot de passe : "+motdepasse.getText());
+            System.out.println("Utilisateur connecté : " + utilisateur);
         } else {
             erreurLabel.setText("Identifiant ou mot de passe incorrect !");
+            System.out.println("Erreur : " + erreurLabel.getText());
         }
     }
+
     @FXML
     private void allerAInscription(ActionEvent event) {
         StartApplication.changeScene("InscriptionView");
