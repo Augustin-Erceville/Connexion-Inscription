@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Utilisateur;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
 public class InscriptionController {
@@ -62,7 +63,9 @@ public class InscriptionController {
             System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
-        Utilisateur nouvelUtilisateur = new Utilisateur(nomUtilisateur, prenomUtilisateur, emailUtilisateur, motDePasse, "utilisateur");
+        BCryptPasswordEncoder myEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = myEncoder.encode(motDePasse);
+        Utilisateur nouvelUtilisateur = new Utilisateur(nomUtilisateur, prenomUtilisateur, emailUtilisateur, hashedPassword, "utilisateur");
 
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
         utilisateurRepo.inscrireUtilisateur(nouvelUtilisateur);
