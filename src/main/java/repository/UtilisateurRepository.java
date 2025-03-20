@@ -1,6 +1,7 @@
 package repository;
 import model.Utilisateur;
 import database.Database;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,11 @@ public class UtilisateurRepository {
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getEmail());
-            stmt.setString(4, utilisateur.getMot_de_passe()); // Le mot de passe est déjà hashé dans Utilisateur.java
+            stmt.setString(4, utilisateur.getMot_de_passe());
             stmt.setString(5, utilisateur.getRole());
 
             int rowsInserted = stmt.executeUpdate();
-            return rowsInserted > 0; // Retourne true si l'inscription a réussi
+            return rowsInserted > 0;
 
         } catch (SQLException e) {
             if (e.getMessage().contains("Duplicate entry")) {
@@ -54,6 +55,21 @@ public class UtilisateurRepository {
             System.err.println("Erreur lors de la récupération de l'utilisateur : " + e.getMessage());
         }
         return null;
+    }
+
+    public boolean verifierConnexion(String email, String motDePasse) {
+        String sql = "SELECT mot_de_passe FROM utilisateur WHERE email = ?";
+        try (PreparedStatement stmt = connexion.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String motDePasseStocke = rs.getString("mot_de_passe");
+                return motDePasse.equals(motDePasseStocke);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la vérification de la connexion : " + e.getMessage());
+        }
+        return false;
     }
 
     public List<Utilisateur> getTousLesUtilisateurs() {

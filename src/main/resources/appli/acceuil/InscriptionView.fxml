@@ -12,13 +12,13 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.InscriptionController">
    <children>
-      <Text layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSCRIPTION" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSCRIPTION" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Label id="prenom" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="PRÉNOM" />
-      <TextField fx:id="prenom" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" >
+      <Label id="prenom" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" text="PRÉNOM" />
+      <TextField fx:id="prenom" layoutX="150.0" layoutY="75.0" prefHeight="25.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -26,8 +26,8 @@
             <Blend />
          </effect>
       </TextField>
-      <Label id="nom" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="NOM DE FAMILLE" />
-      <TextField fx:id="nom" layoutX="300.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0">
+      <Label id="nom" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" text="NOM DE FAMILLE" />
+      <TextField fx:id="nom" layoutX="300.0" layoutY="75.0" prefHeight="25.0" prefWidth="150.0">
          <effect>
             <Blend />
          </effect>
@@ -35,8 +35,8 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label id="email" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="75.0" prefHeight="25.0" prefWidth="300.0" text="ADRESSE EMAIL" />
-      <TextField fx:id="email" layoutX="150.0" layoutY="100.0" prefHeight="25.0" prefWidth="300.0">
+      <Label id="email" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="25.0" prefWidth="300.0" text="ADRESSE EMAIL" />
+      <TextField fx:id="email" layoutX="150.0" layoutY="125.0" prefHeight="25.0" prefWidth="300.0">
          <effect>
             <Blend />
          </effect>
@@ -44,8 +44,8 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label id="mdp" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" text="MOT DE PASSE" />
-      <PasswordField fx:id="mdp" layoutX="150.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0">
+      <Label id="mdp" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0" text="MOT DE PASSE" />
+      <PasswordField fx:id="mdp" layoutX="150.0" layoutY="175.0" prefHeight="25.0" prefWidth="150.0">
          <effect>
             <Blend />
          </effect>
@@ -53,12 +53,12 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </PasswordField>
-      <Label id="mdp_confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" text="CONFIRMATION">
+      <Label id="mdp_confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0" text="CONFIRMATION">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <PasswordField fx:id="mdp_confirm" layoutX="300.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0">
+      <PasswordField fx:id="mdp_confirm" layoutX="300.0" layoutY="175.0" prefHeight="25.0" prefWidth="150.0">
          <effect>
             <Blend />
          </effect>
@@ -66,7 +66,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </PasswordField>
-      <Button fx:id="connexion" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="200.0" mnemonicParsing="false" onAction="#revenirALogin" prefHeight="25.0" prefWidth="150.0" text="CONNEXION" textAlignment="CENTER" textOverrun="CLIP">
+      <Button fx:id="connexion" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="225.0" mnemonicParsing="false" onAction="#revenirALogin" prefHeight="25.0" prefWidth="150.0" text="CONNEXION" textAlignment="CENTER" textOverrun="CLIP">
          <effect>
             <Blend />
          </effect>
@@ -74,7 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="inscription" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" onAction="#validerInscription" prefHeight="25.0" prefWidth="150.0" text="INSCRIPTION" textAlignment="CENTER" textOverrun="CLIP">
+      <Button fx:id="inscription" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="225.0" mnemonicParsing="false" onAction="#validerInscription" prefHeight="25.0" prefWidth="150.0" text="INSCRIPTION" textAlignment="CENTER" textOverrun="CLIP">
          <effect>
             <Blend />
          </effect>
@@ -82,7 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="erreurLabel" alignment="TOP_CENTER" layoutX="150.0" layoutY="225.0" minHeight="75.0" prefWidth="300.0">
+      <Label fx:id="erreurLabel" alignment="TOP_CENTER" layoutX="150.0" layoutY="250.0" minHeight="50.0" prefWidth="300.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

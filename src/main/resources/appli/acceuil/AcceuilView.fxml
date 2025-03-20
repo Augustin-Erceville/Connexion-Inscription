@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.AcceuilController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="1280.0" text="ACCEUIL">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TableView layoutX="20.0" layoutY="50.0" prefHeight="600.0" prefWidth="1240.0">
+        <columns>
+          <TableColumn editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" sortable="false" text="ID" />
+          <TableColumn editable="false" maxWidth="-1.0" minWidth="250.0" prefWidth="-1.0" sortable="false" text="PRENOM" />
+            <TableColumn editable="false" maxWidth="-1.0" minWidth="250.0" prefWidth="-1.0" sortable="false" text="NOM DE FAMILLE" />
+            <TableColumn editable="false" maxWidth="-1.0" minWidth="500.0" prefWidth="-1.0" sortable="false" text="EMAIL" />
+            <TableColumn editable="false" maxWidth="-1.0" minWidth="190.0" prefWidth="-1.0" sortable="false" text="ROLE" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>
