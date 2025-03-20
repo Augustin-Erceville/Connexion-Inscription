@@ -13,7 +13,7 @@
 
 <AnchorPane cacheShape="false" focusTraversable="true" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.LoginController">
    <children>
-      <Text layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNEXION" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNEXION" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -21,41 +21,41 @@
             <Point3D />
          </rotationAxis>
       </Text>
-      <Label id="identifiant" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="25.0" prefHeight="25.0" prefWidth="300.0" text="IDENTIFIANT" />
-      <TextField id="Identifiant" fx:id="identifiant" layoutX="150.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="300.0" promptText="Votre identifiant">
+      <Label id="identifiant" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="300.0" text="IDENTIFIANT" />
+      <TextField id="Identifiant" fx:id="identifiant" layoutX="150.0" layoutY="75.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="300.0" promptText="Votre identifiant">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
          <effect>
             <Blend />
          </effect></TextField>
-      <Label id="motdepasse" alignment="CENTER" layoutX="150.0" layoutY="75.0" prefHeight="25.0" prefWidth="300.0" text="MOT DE PASSE" />
-      <Button fx:id="connexion" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#afficherInformations" prefHeight="25.0" prefWidth="150.0" text="CONNEXION" textAlignment="CENTER" textOverrun="CLIP">
+      <Label id="motdepasse" alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="25.0" prefWidth="300.0" text="MOT DE PASSE" />
+      <Button fx:id="connexion" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="175.0" mnemonicParsing="false" onAction="#afficherInformations" prefHeight="25.0" prefWidth="150.0" text="CONNEXION" textAlignment="CENTER" textOverrun="CLIP">
          <effect>
             <Blend />
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="inscription" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="150.0" mnemonicParsing="false" onAction="#allerAInscription" prefHeight="25.0" prefWidth="150.0" text="INSCRIPTION" textAlignment="CENTER" textOverrun="CLIP">
+      <Button fx:id="inscription" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="175.0" mnemonicParsing="false" onAction="#allerAInscription" prefHeight="25.0" prefWidth="150.0" text="INSCRIPTION" textAlignment="CENTER" textOverrun="CLIP">
          <effect>
             <Blend />
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="mdp_oublie" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="300.0" text="MOT DE PASSE OUBLIÉ" textAlignment="CENTER" textOverrun="CLIP">
+      <Button fx:id="mdp_oublie" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="300.0" text="MOT DE PASSE OUBLIÉ" textAlignment="CENTER" textOverrun="CLIP">
          <effect>
             <Blend />
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="erreurLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="200.0" prefHeight="100.0" prefWidth="300.0">
+      <Label fx:id="erreurLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="225.0" prefHeight="50.0" prefWidth="300.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <PasswordField fx:id="motdepasse" layoutX="150.0" layoutY="100.0" minHeight="25.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="300.0" promptText="Votre mot de passe">
+      <PasswordField fx:id="motdepasse" layoutX="150.0" layoutY="125.0" minHeight="25.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="300.0" promptText="Votre mot de passe">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>

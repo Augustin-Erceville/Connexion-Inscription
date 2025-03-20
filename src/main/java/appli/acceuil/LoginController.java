@@ -7,8 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import repository.UtilisateurRepository;
 import model.Utilisateur;
+import repository.UtilisateurRepository;
 
 public class LoginController {
 
@@ -25,28 +25,26 @@ public class LoginController {
     private Button inscription;
 
     @FXML
-    private Button mdp_oublie;
-
-    @FXML
     private PasswordField motdepasse;
 
     @FXML
     public void afficherInformations(ActionEvent event) {
-        String user = identifiant.getText().trim();
-        String pass = motdepasse.getText().trim();
+        String email = identifiant.getText().trim();
+        String motDePasse = motdepasse.getText().trim();
 
-        if (user.isEmpty() || pass.isEmpty()) {
+        if (email.isEmpty() || motDePasse.isEmpty()) {
             erreurLabel.setText("Identifiant et mot de passe sont obligatoires !");
             System.out.println("Erreur : " + erreurLabel.getText());
             return;
         }
 
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
-        Utilisateur utilisateur = utilisateurRepo.getUtilisateurParEmail(user);
+        boolean estValide = utilisateurRepo.verifierConnexion(email, motDePasse);
 
-        if (utilisateur != null) {
+        if (estValide) {
             erreurLabel.setText("Connexion réussie !");
-            System.out.println("Utilisateur connecté : " + utilisateur);
+            System.out.println("Utilisateur connecté : " + email);
+            StartApplication.changeScene("AcceuilView");
         } else {
             erreurLabel.setText("Identifiant ou mot de passe incorrect !");
             System.out.println("Erreur : " + erreurLabel.getText());
