@@ -65,10 +65,10 @@ public class InscriptionController {
         Utilisateur nouvelUtilisateur = new Utilisateur(nomUtilisateur, prenomUtilisateur, emailUtilisateur, motDePasse, "utilisateur");
 
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
-        utilisateurRepo.ajouterUtilisateur(nouvelUtilisateur);
+        utilisateurRepo.inscrireUtilisateur(nouvelUtilisateur);
 
-        erreurLabel.setText("Inscription réussie !");
         System.out.println("Utilisateur inscrit avec succès : " + nouvelUtilisateur);
+        StartApplication.changeScene("LoginView");
     }
 
     @FXML
