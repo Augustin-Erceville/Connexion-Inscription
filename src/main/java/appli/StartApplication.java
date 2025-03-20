@@ -17,7 +17,7 @@ public class StartApplication extends Application {
     public void start(Stage stage) throws IOException {
         mainStage = stage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ressources/appli/acceuil/LoginView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/acceuil/LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 300);
         stage.setTitle("Connexion");
         stage.setScene(scene);
@@ -31,7 +31,7 @@ public class StartApplication extends Application {
         }
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/ressources/appli/acceuil/" + fichierFxml + ".fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/appli/acceuil/" + fichierFxml + ".fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             mainStage.setScene(scene);
             mainStage.setTitle(fichierFxml.equals("LoginView") ? "Connexion" : "Inscription");
