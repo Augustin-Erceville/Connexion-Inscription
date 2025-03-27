@@ -47,8 +47,8 @@ public class LoginController {
         Utilisateur utilisateur = utilisateurRepo.getUtilisateurParEmail(user);
 
         if (utilisateur != null && myEncoder.matches(motdepasse.getText(), utilisateur.getMot_de_passe())) {
-            erreurLabel.setText("Connexion réussie !\nBienvenue\n" + utilisateur.getPrenom() + " " + utilisateur.getNom());
             System.out.println("Utilisateur connecté : " + utilisateur);
+            SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
             StartApplication.changeScene("AcceuilView");
         } else {
             erreurLabel.setText("Identifiant ou mot de passe incorrect !");

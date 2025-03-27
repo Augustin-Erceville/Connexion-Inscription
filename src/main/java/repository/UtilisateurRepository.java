@@ -1,6 +1,9 @@
 package repository;
+import javafx.fxml.FXML;
 import model.Utilisateur;
 import database.Database;
+import session.SessionUtilisateur;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,4 +113,10 @@ public class UtilisateurRepository {
             System.err.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
         }
     }
+    @FXML
+    protected void handleLogout() {
+        SessionUtilisateur.getInstance().deconnecter();
+        System.out.println("Utilisateur déconnecté.");
+    }
+
 }
