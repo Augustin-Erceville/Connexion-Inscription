@@ -19,11 +19,11 @@ public class UtilisateurRepository {
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
             stmt.setString(3, utilisateur.getEmail());
-            stmt.setString(4, utilisateur.getMot_de_passe()); // Le mot de passe est déjà hashé dans Utilisateur.java
+            stmt.setString(4, utilisateur.getMot_de_passe());
             stmt.setString(5, utilisateur.getRole());
 
             int rowsInserted = stmt.executeUpdate();
-            return rowsInserted > 0; // Retourne true si l'inscription a réussi
+            return rowsInserted > 0;
 
         } catch (SQLException e) {
             if (e.getMessage().contains("Duplicate entry")) {
