@@ -49,7 +49,7 @@ public class LoginController {
         if (utilisateur != null && myEncoder.matches(motdepasse.getText(), utilisateur.getMot_de_passe())) {
             System.out.println("Utilisateur connecté : " + utilisateur);
             SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
-            StartApplication.changeScene("AcceuilView");
+            StartApplication.changeScene("TableView");
         } else {
             erreurLabel.setText("Identifiant ou mot de passe incorrect !");
             System.out.println("Erreur : " + erreurLabel.getText());

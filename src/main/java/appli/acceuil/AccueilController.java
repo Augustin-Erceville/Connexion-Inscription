@@ -1,4 +1,4 @@
-package appli.acceuil;
+/*package appli.acceuil;
 
 import model.Utilisateur;
 import session.SessionUtilisateur;
@@ -9,4 +9,4 @@ if (utilisateurActuel != null) {
         System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
     }
 
-}
+}*/

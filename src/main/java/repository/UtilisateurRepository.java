@@ -59,8 +59,8 @@ public class UtilisateurRepository {
         return null;
     }
 
-    public List<Utilisateur> getTousLesUtilisateurs() {
-        List<Utilisateur> utilisateurs = new ArrayList<>();
+    public ArrayList<Utilisateur> getTousLesUtilisateurs() {
+        ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
         String sql = "SELECT * FROM utilisateur";
         try (Statement stmt = connexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
