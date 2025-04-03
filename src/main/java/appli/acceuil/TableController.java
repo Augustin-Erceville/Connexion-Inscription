@@ -22,10 +22,10 @@ public class TableController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String[][] colonnes = {
-                {"Id Utilisateur", "idUser"},
+                {"Id Utilisateur", "id_utilisateur"},
                 {"Nom", "nom"},
                 {"Prénom", "prenom"},
-                {"Email", "mail"},
+                {"Email", "email"},
                 {"Rôle", "role"},
         };
 
