@@ -32,7 +32,7 @@ public class StartApplication extends Application {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("/appli/acceuil/" + fichierFxml + ".fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
             mainStage.setScene(scene);
             mainStage.setTitle(fichierFxml.equals("LoginView") ? "Connexion" : "Inscription");
         } catch (IOException e) {

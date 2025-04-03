@@ -62,7 +62,7 @@ public class UtilisateurRepository {
     public ArrayList<Utilisateur> getTousLesUtilisateurs() {
         ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
         String sql = "SELECT * FROM utilisateur";
-        try (Statement stmt = connexion.createStatement();
+        try (Statement stmt = this.connexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 utilisateurs.add(new Utilisateur(
