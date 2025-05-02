@@ -1,91 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.InscriptionController">
-   <children>
-      <Text layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSCRIPTION" textAlignment="CENTER" wrappingWidth="600.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
-      <Label id="prenom" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="PRÉNOM" />
-      <TextField fx:id="prenom" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" >
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <effect>
-            <Blend />
-         </effect>
-      </TextField>
-      <Label id="nom" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="NOM DE FAMILLE" />
-      <TextField fx:id="nom" layoutX="300.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <Label id="email" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="75.0" prefHeight="25.0" prefWidth="300.0" text="ADRESSE EMAIL" />
-      <TextField fx:id="email" layoutX="150.0" layoutY="100.0" prefHeight="25.0" prefWidth="300.0">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <Label id="mdp" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" text="MOT DE PASSE" />
-      <PasswordField fx:id="mdp" layoutX="150.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </PasswordField>
-      <Label id="mdp_confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="125.0" prefHeight="25.0" prefWidth="150.0" text="CONFIRMATION">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Label>
-      <PasswordField fx:id="mdp_confirm" layoutX="300.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </PasswordField>
-      <Button fx:id="connexion" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="200.0" mnemonicParsing="false" onAction="#revenirALogin" prefHeight="25.0" prefWidth="150.0" text="CONNEXION" textAlignment="CENTER" textOverrun="CLIP">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="inscription" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" onAction="#validerInscription" prefHeight="25.0" prefWidth="150.0" text="INSCRIPTION" textAlignment="CENTER" textOverrun="CLIP">
-         <effect>
-            <Blend />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label fx:id="erreurLabel" alignment="TOP_CENTER" layoutX="150.0" layoutY="225.0" minHeight="75.0" prefWidth="300.0">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.acceuil.InscriptionController" prefWidth="600.0" prefHeight="400.0">
+   <padding>
+      <Insets top="30" bottom="30" left="40" right="40"/>
+   </padding>
+
+   <Text text="Créer un compte" textAlignment="CENTER">
+      <font>
+         <Font name="Arial Bold" size="24.0" />
+      </font>
+   </Text>
+
+   <Line startX="0" endX="400" stroke="LIGHTGRAY" />
+
+   <VBox alignment="CENTER_LEFT" spacing="10.0" prefWidth="400.0">
+      <Label text="Prénom"/>
+      <TextField fx:id="prenom" promptText="Entrez votre prénom" />
+
+      <Label text="Nom de famille"/>
+      <TextField fx:id="nom" promptText="Entrez votre nom" />
+
+      <Label text="Adresse email"/>
+      <TextField fx:id="email" promptText="exemple@domaine.com" />
+
+      <Label text="Mot de passe"/>
+      <PasswordField fx:id="mdp" promptText="Mot de passe" />
+
+      <Label text="Confirmation du mot de passe"/>
+      <PasswordField fx:id="mdp_confirm" promptText="Confirmez le mot de passe" />
+   </VBox>
+
+   <HBox alignment="CENTER" spacing="20.0">
+      <Button fx:id="connexion" text="RETOUR" onAction="#revenirALogin" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+      <Button fx:id="inscription" text="S'INSCRIRE" onAction="#validerInscription" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+   </HBox>
+
+   <Label fx:id="erreurLabel" textFill="RED" alignment="CENTER" wrapText="true" prefWidth="400.0">
+      <font>
+         <Font name="Arial" size="12.0"/>
+      </font>
+   </Label>
+</VBox>
