@@ -1,5 +1,5 @@
 package repository;
-import javafx.fxml.FXML;
+
 import model.Utilisateur;
 import database.Database;
 import session.SessionUtilisateur;
@@ -17,7 +17,6 @@ public class UtilisateurRepository {
 
     public boolean inscrireUtilisateur(Utilisateur utilisateur) {
         String sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) VALUES (?, ?, ?, ?, ?)";
-
         try (PreparedStatement stmt = connexion.prepareStatement(sql)) {
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
@@ -27,7 +26,6 @@ public class UtilisateurRepository {
 
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;
-
         } catch (SQLException e) {
             if (e.getMessage().contains("Duplicate entry")) {
                 System.err.println("Erreur : Cet email est déjà utilisé !");
@@ -59,10 +57,10 @@ public class UtilisateurRepository {
         return null;
     }
 
-    public ArrayList<Utilisateur> getTousLesUtilisateurs() {
-        ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
+    public List<Utilisateur> getTousLesUtilisateurs() {
+        List<Utilisateur> utilisateurs = new ArrayList<>();
         String sql = "SELECT * FROM utilisateur";
-        try (Statement stmt = this.connexion.createStatement();
+        try (Statement stmt = connexion.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 utilisateurs.add(new Utilisateur(
@@ -80,22 +78,25 @@ public class UtilisateurRepository {
         return utilisateurs;
     }
 
-    public void supprimerUtilisateurParEmail(String email) {
+    public boolean supprimerUtilisateurParEmail(String email) {
         String sql = "DELETE FROM utilisateur WHERE email = ?";
         try (PreparedStatement stmt = connexion.prepareStatement(sql)) {
             stmt.setString(1, email);
             int rowsDeleted = stmt.executeUpdate();
             if (rowsDeleted > 0) {
                 System.out.println("Utilisateur supprimé avec succès !");
+                return true;
             } else {
                 System.out.println("Aucun utilisateur trouvé avec cet email.");
+                return false;
             }
         } catch (SQLException e) {
             System.err.println("Erreur lors de la suppression de l'utilisateur : " + e.getMessage());
+            return false;
         }
     }
 
-    public void mettreAJourUtilisateur(Utilisateur utilisateur) {
+    public boolean mettreAJourUtilisateur(Utilisateur utilisateur) {
         String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, mot_de_passe = ?, role = ? WHERE email = ?";
         try (PreparedStatement stmt = connexion.prepareStatement(sql)) {
             stmt.setString(1, utilisateur.getNom());
@@ -106,17 +107,19 @@ public class UtilisateurRepository {
             int rowsUpdated = stmt.executeUpdate();
             if (rowsUpdated > 0) {
                 System.out.println("Utilisateur mis à jour avec succès !");
+                return true;
             } else {
                 System.out.println("Aucun utilisateur trouvé avec cet email.");
+                return false;
             }
         } catch (SQLException e) {
             System.err.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
+            return false;
         }
     }
-    @FXML
+
     protected void handleLogout() {
         SessionUtilisateur.getInstance().deconnecter();
         System.out.println("Utilisateur déconnecté.");
     }
-
 }

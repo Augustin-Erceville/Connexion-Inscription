@@ -26,7 +26,7 @@ public class StartApplication extends Application {
 
     public static void changeScene(String fichierFxml) {
         if (mainStage == null) {
-            System.err.println("Erreur : La scène principale (mainStage) n'est pas initialisée.");
+            System.err.println("Erreur : La scène principale n'est pas initialisée.");
             return;
         }
 

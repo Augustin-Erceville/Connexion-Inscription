@@ -47,7 +47,8 @@ public class LoginController {
         Utilisateur utilisateur = utilisateurRepo.getUtilisateurParEmail(user);
 
         if (utilisateur != null && myEncoder.matches(motdepasse.getText(), utilisateur.getMot_de_passe())) {
-            System.out.println("Utilisateur connecté : " + utilisateur);
+            System.out.println("Utilisateur connecté : ");
+            System.out.println(utilisateur);
             SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
             StartApplication.changeScene("TableView");
         } else {
