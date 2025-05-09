@@ -1,9 +1,9 @@
 ﻿# TP Java FX
 ### LANCER LE PROGRAMME
-Veuillez exécuter `src/main/java/appli/StartApplication.java`
-Inscrivez-vous
-Puis connectez-vous
-Vous aurez accès au tableau des utilisateurs
+Veuillez exécuter `src/main/java/appli/StartApplication.java`.  
+Inscrivez-vous.  
+Puis connectez-vous.  
+Vous aurez accès au tableau des utilisateurs.  
 ### BASE DE DONNÉES
 ```sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
