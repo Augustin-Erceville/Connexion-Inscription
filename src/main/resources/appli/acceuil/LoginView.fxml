@@ -41,7 +41,7 @@
       <Button fx:id="inscription" text="CRÉER UN COMPTE" onAction="#allerAInscription" style="-fx-background-color: #6f42c1; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
    </HBox>
 
-   <Button fx:id="mdp_oublie" text="Mot de passe oublié ?" style="-fx-background-color: transparent; -fx-text-fill: #0078D7; -fx-underline: true;" />
+<!--   <Button fx:id="mdp_oublie" text="Mot de passe oublié ?" style="-fx-background-color: transparent; -fx-text-fill: #0078D7; -fx-underline: true;" />-->
 
    <Label fx:id="erreurLabel" textFill="RED" alignment="CENTER" wrapText="true" prefWidth="400.0">
       <font>
